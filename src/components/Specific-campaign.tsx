@@ -9,11 +9,11 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Loader2 } from "lucide-react";
-// mina importer
 import { Campaign } from "./campaigns-page";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import backendBaseUrl from "backendBaseUrl";
 
 export function SpecificCampaign() {
   const [campaign, setCampaign] = useState<Campaign | null>(null);
@@ -23,9 +23,7 @@ export function SpecificCampaign() {
   useEffect(() => {
     const fetchCampaignDetails = async () => {
       try {
-        const response = await axios.get(
-          `http://localhost:1337/campaign/${id}`
-        );
+        const response = await axios.get(`${backendBaseUrl}/campaign/${id}`);
         setCampaign(response.data);
       } catch (error) {
         console.error("Fel vid hämtning av kampanjdetaljer:", error);

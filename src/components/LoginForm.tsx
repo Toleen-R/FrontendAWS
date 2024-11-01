@@ -8,11 +8,12 @@ import axios from "axios";
 import { LockIcon, MailIcon } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "@/context/context";
+import backendBaseUrl from "backendBaseUrl";
 
 // fixa denna till en riktig fetch med fetch eller axios?
 const handleGithubLogin = async (e: React.FormEvent) => {
   e.preventDefault();
-  window.location.href = "http://localhost:1337/auth/github";
+  window.location.href = `${backendBaseUrl}/auth/github`;
 };
 
 export const LoginForm = () => {
@@ -28,7 +29,7 @@ export const LoginForm = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:1337/auth/login",
+        `${backendBaseUrl}/auth/login`,
         {
           email,
           password,

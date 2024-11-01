@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { ImageIcon } from "lucide-react";
+import backendBaseUrl from "backendBaseUrl";
 
 export function Register() {
   const [fullName, setFullName] = useState("");
@@ -15,8 +16,8 @@ export function Register() {
   function submitToDatabase(e: React.FormEvent) {
     e.preventDefault();
 
-    if(repeatPassword !== password) return alert('passwords do not match')
-    fetch("http://localhost:1337/users/", {
+    if (repeatPassword !== password) return alert("passwords do not match");
+    fetch(`${backendBaseUrl}/users/`, {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -31,7 +32,7 @@ export function Register() {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        navigate("/login")
+        navigate("/login");
       })
       .catch((error) => console.log(error));
   }
