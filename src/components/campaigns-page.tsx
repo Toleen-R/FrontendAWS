@@ -8,7 +8,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { PlusCircle, Calendar, Mail } from "lucide-react";
 import axios from "axios";
 import { todaysDate } from "@/utils/todaysDate";
-import backendBaseUrl from "backendBaseUrl";
+import backendBaseUrl from "./backendBaseUrl";
 
 export interface Campaign {
   companyName: string;
@@ -26,7 +26,7 @@ export function CampaignsPageComponent() {
   let navigate = useNavigate();
   function changeRoute(id: string): void {
     // navigate(`/campaign?id=${id}`);
-    navigate(`/campaign/${id}`);
+    navigate(`${backendBaseUrl}/campaign/${id}`);
   }
   const [campaigns, setCampaigns] = useState<Campaign[]>([]);
   const [showForm, setShowForm] = useState(false);

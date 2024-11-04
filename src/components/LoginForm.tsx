@@ -8,7 +8,7 @@ import axios from "axios";
 import { LockIcon, MailIcon } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "@/context/context";
-import backendBaseUrl from "backendBaseUrl";
+import backendBaseUrl from "./backendBaseUrl";
 
 // fixa denna till en riktig fetch med fetch eller axios?
 const handleGithubLogin = async (e: React.FormEvent) => {

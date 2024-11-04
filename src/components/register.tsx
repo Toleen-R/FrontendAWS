@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { ImageIcon } from "lucide-react";
-import backendBaseUrl from "backendBaseUrl";
+import backendBaseUrl from "./backendBaseUrl";
 
 export function Register() {
   const [fullName, setFullName] = useState("");

@@ -13,7 +13,7 @@ import { Campaign } from "./campaigns-page";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import backendBaseUrl from "backendBaseUrl";
+import backendBaseUrl from "./backendBaseUrl";
 
 export function SpecificCampaign() {
   const [campaign, setCampaign] = useState<Campaign | null>(null);
