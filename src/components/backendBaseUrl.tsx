@@ -1,4 +1,7 @@
-const environment = import.meta.env.REACT_APP_ENVIRONMENT;
+
+// const environment = import.meta.env.REACT_APP_ENVIRONMENT;
+const environment = "prod"
+
 // Now, you can use the 'environment' variable in your code
 let backendBaseUrl = "";
 if (environment === "prod") {
