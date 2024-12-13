@@ -10,6 +10,8 @@ import axios from "axios";
 import { todaysDate } from "@/utils/todaysDate";
 import backendBaseUrl from "./backendBaseUrl";
 
+
+// Detta beskriver hur en kampanjstruktur ska se ut.
 export interface Campaign {
   companyName: string;
   companyDescription: string;
@@ -21,15 +23,18 @@ export interface Campaign {
   // emails: [string] // detta ska va med men fattar inte ens grejen med emails
 }
 
+// Huvudkomponent för sidan där kampanjer visas.
 export function CampaignsPageComponent() {
-  // Function to navigate to specific campaign
-  let navigate = useNavigate();
+ // Funktion för att navigera till en specifik kampanj.  let navigate = useNavigate();
   function changeRoute(id: string): void {
     // navigate(`/campaign?id=${id}`);
     navigate(`${backendBaseUrl}/campaign/${id}`);
   }
+   // State-variabel för att lagra en lista med kampanjer.
   const [campaigns, setCampaigns] = useState<Campaign[]>([]);
+  // State-variabel för att hantera om formuläret ska visas eller inte.
   const [showForm, setShowForm] = useState(false);
+  // State-variabel för att hantera formulärdata för att skapa eller redigera kampanjer.
   const [formData, setFormData] = useState({
     companyName: " ",
     companyDescription: " ",
@@ -37,10 +42,11 @@ export function CampaignsPageComponent() {
     targetAudience: " ",
   });
 
+  // Funktion för att uppdatera formulärdata när användaren skriver i formulärfält.
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    const { id, value } = e.target;
+    const { id, value } = e.target; // Hämta ID och värde från formulärfältet.
     setFormData((prevData) => ({
       ...prevData,
       [id]: value,

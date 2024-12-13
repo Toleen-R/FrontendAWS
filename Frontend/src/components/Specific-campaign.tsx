@@ -3,6 +3,11 @@
  * @see https://v0.dev/t/M4EOx9f4Kqq
  * Documentation: https://v0.dev/docs#integrating-generated-code-into-your-nextjs-app
  */
+
+/*Denna fil hämtar och visar detaljer om en specifik kampanj baserat på kampanjens ID från URL-parametern. 
+Den visar information om företaget, produkten och målgruppen samt genererade e-postmeddelanden. Användaren 
+kan också skapa ett nytt e-postmeddelande genom att ange ämne och innehåll i ett formulär.
+*/
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";

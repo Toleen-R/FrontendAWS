@@ -1,6 +1,5 @@
-import { Link } from "react-router-dom";
-import { LoginForm } from "@/components/LoginForm";
-
+import { Link } from "react-router-dom";  // Importerar Link-komponenten från React Router för navigering.
+import { LoginForm } from "@/components/LoginForm";  // Importerar LoginForm-komponenten för inloggning.
 export const LoginPage = () => {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50">

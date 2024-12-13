@@ -1,3 +1,5 @@
+//Den här filen definierar en komponent för startsidan där användare kan registrera sig, logga in eller komma 
+// åt sina kampanjer beroende på om de är inloggade eller inte.
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "@/context/context";

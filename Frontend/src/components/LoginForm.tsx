@@ -1,3 +1,6 @@
+//Den här filen definierar en loginformulärskomponent där användare kan logga in med e-post och 
+// lösenord eller via GitHub, samt hantera inloggningsstatus och navigering.
+
 import { useState, useContext } from "react";
 import Input from "@/components/ui/LoginInput";
 import { Link } from "react-router-dom";

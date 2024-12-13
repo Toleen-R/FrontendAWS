@@ -1,27 +1,32 @@
-import { useState } from 'react'
-import { PlusCircle } from 'lucide-react'
+import { useState } from 'react'  // Importerar useState hook för att hantera komponentens tillstånd.
+import { PlusCircle } from 'lucide-react'  // Importerar PlusCircle-ikonen från lucide-react-biblioteket.
 
 interface Email {
-  subject: string
+  subject: string  // Definierar en struktur för e-post med fält för ämne och innehåll.
   content: string
 }
 
 export function CreateEmail() {
+  // Definierar initialt tillstånd för emails med två exempel-e-postmeddelanden.
   const [emails, setEmails] = useState<Email[]>([
     { subject: "Exciting New Product Launch!", content: "Dear valued customer, we're thrilled to announce our latest product that will revolutionize your daily routine. Get ready for an exclusive first look!" },
     { subject: "Limited Time Offer Inside", content: "Don't miss out on our exclusive deal! For the next 48 hours, enjoy unprecedented discounts on our entire summer collection. Act fast before this offer expires!" }
   ])
+
+  // Definierar tillstånd för att hålla ämnet och innehållet på ett nytt e-postmeddelande.
   const [newSubject, setNewSubject] = useState('')
   const [newContent, setNewContent] = useState('')
 
+  // Funktion för att lägga till ett nytt e-postmeddelande i listan.
   const handleAddEmail = (e: React.FormEvent) => {
-    e.preventDefault()
-    if (newSubject && newContent) {
-      setEmails([...emails, { subject: newSubject, content: newContent }])
-      setNewSubject('')
-      setNewContent('')
+    e.preventDefault()  // Förhindrar siduppdatering när formuläret skickas.
+    if (newSubject && newContent) {  // Kontrollerar att både ämnet och innehållet är ifyllda.
+      setEmails([...emails, { subject: newSubject, content: newContent }])  // Lägger till det nya e-postmeddelandet i listan.
+      setNewSubject('')  // Rensar ämnesfältet.
+      setNewContent('')  // Rensar innehållsfältet.
     }
   }
+
 
   return (
     <div className="max-w-6xl mx-auto p-6 space-y-8">

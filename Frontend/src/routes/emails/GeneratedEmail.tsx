@@ -1,20 +1,23 @@
-import { useState } from 'react'
-import { ArrowLeft, Save, Clock, Trash2, Send, X, Plus, Download } from 'lucide-react'
+import { useState } from 'react'  // Importerar useState hook för att hantera komponentens tillstånd.
+import { ArrowLeft, Save, Clock, Trash2, Send, X, Plus, Download } from 'lucide-react'  // Importerar ikoner från lucide-react-biblioteket.
 
 export function GeneratedEmail() {
-  const [recipients, setRecipients] = useState(['jane.doe@example.com', 'bob.smith@example.com'])
-  const [newRecipient, setNewRecipient] = useState('')
+  const [recipients, setRecipients] = useState(['jane.doe@example.com', 'bob.smith@example.com'])  // Definierar recipients tillstånd för att hålla en lista med e-postmottagare.
+  const [newRecipient, setNewRecipient] = useState('')  // Definierar newRecipient tillstånd för att hålla det nya e-postmeddelandet som ska läggas till.
 
   const addRecipient = () => {
-    if (newRecipient && !recipients.includes(newRecipient)) {
-      setRecipients([...recipients, newRecipient])
-      setNewRecipient('')
+    // Funktion för att lägga till en ny mottagare till listan
+    if (newRecipient && !recipients.includes(newRecipient)) {  // Kollar om det nya e-postmeddelandet är icke-tomt och inte redan finns i listan.
+      setRecipients([...recipients, newRecipient])  // Lägger till det nya e-postmeddelandet i recipients-listan.
+      setNewRecipient('')  // Rensar inputfältet efter att en ny mottagare har lagts till.
     }
   }
 
   const removeRecipient = (email: string) => {
-    setRecipients(recipients.filter(r => r !== email))
+    // Funktion för att ta bort en mottagare från listan
+    setRecipients(recipients.filter(r => r !== email))  // Filtrerar bort den angivna e-postmottagaren från recipients-listan.
   }
+
 
   return (
     <div className="max-w-6xl mx-auto p-6">
